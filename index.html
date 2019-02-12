@@ -1,34 +1,28 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="assets/css/style.css">
-    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
-    <script rel="stylesheet" href="assets/javascript/game.js"></script>
-    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Play Hangman!</title>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
-    <link rel="stylesheet" type="css" href="assets/css/style.css">
+    <link rel="stylesheet" type="text/css" href="./assets/css/style.css">
 </head>
 
 <body>
-    <div>
-        <p>This should show up.</p>
-    </div>
     <div class="container">
         <div class="row">
-            <div id="wins" class="col-3"></div>
-            <div id="losses" class="col-3"></div>
-            <div id="currentWord" class="col-3"></div>
+            <div id="wins" class="col-6"><p>Wins</p></div>
             
+            <div id="guessCounter" class="col-6"><p>Guesses Left:</p></div>
         </div>
         <div class="row">
-            <div id="guessCounter" class="col-3"></div>
-            <div id="wrong"class="col-3"></div>
+            <div id="guesses" class="col-6"></div>
+            <div id="wrongGuesses" class="col-6"><p>Wrong Guesses</p></div>
         </div>
-
     </div>
-
+    <script src="./assets/javascript/game.js"></script>
 </body>
 </html>
