@@ -19,29 +19,42 @@ function game(){
     }
     document.getElementById("currentWord").innerHTML = " "+ blanksAndCorrect.join(" ");
 }
-function check(letterGuessed){
-    for (var j=0; j<blanks;j++){
-        if (word[j]===letterGuessed){
-            blanksAndCorret[j] = letterGuessed;                
-        }
-        else {
-            wrongBank.push(letterGuessed);
-            guessesLeft--;
+function checkLetter(letterGuessed){
+
+    if (lettersOfWord.includes(letterGuessed)){
+        for (var j=0; j<blanks;j++){
+            if (word[j]===letterGuessed){
+                blanksAndCorrect[j] = letterGuessed;                
+            }
+            
         }
     }
-    
+    else {
+            wrongBank.push(letterGuessed);
+            guessesLeft--;
+    }
     document.getElementById("guessesLeft").innerHTML = ("Guesses Remaining: " + guessesLeft);
     document.getElementById("wrongBank").innerHTML = ("Wrong Guesses: "+ wrongBank);
     document.getElementById("currentWord").innerHTML = ("Current Word: "+ blanksAndCorrect);
 }
-function (){
 
+// I can't seem to understand how to use the Break statement, the program works fine if you comment out lines 42-51, but it won't end if youve used up all your guesses.
+function checkGameState(){
+    if (guessesLeft <0 || guessesLeft == 0){
+        alert("You have run out of Guesses! You Lose!");
+        break;
+    }
+    if (blanks = 0){
+        alert("you have correctly guessed the Word! Congratulations!");
+        winCounter ++;
+        break;
+    }
 }
 game()
 document.onkeyup = function(event){
     var letterGuessed = String.fromCharCode(event.keyCode).toLowerCase();
-    check(letterGuessed);
-
+    checkLetter(letterGuessed);
+    checkGameState();
     document.getElementById("winCounter").innerHTML = ("Games Won: " + winCounter);
 }
 console.log(word);
